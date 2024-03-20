@@ -1,6 +1,8 @@
 // Get a reference to the #add-employees-btn element
 const addEmployeesBtn = document.querySelector("#add-employees-btn");
 
+
+
 // Collect employee data
 const collectEmployees = function () {
   // TODO: Get user input to create and return an array of employee objects
@@ -19,11 +21,11 @@ const collectEmployees = function () {
 
   // } while(confirm("Do you want to add another employee?"))
 
-  // above is a do while loop while below is a while loop 
+  // above is a do while loop & below is a while loop 
      
 
-
   let employeesArray = [];
+  
 
 
 
@@ -36,37 +38,68 @@ const collectEmployees = function () {
     employeeinfo.salary = parseFloat(employeeinfo.salary)|| 0;
 
 
-    
+// Above I created an empty array , created an object of prompts, and defaulted the salary to 0. 
+
     while(isNaN(employeeinfo.salary) || employeeinfo.salary <= 0) {
       employeeinfo.salary = parseFloat(prompt("Please enter a valid salary."))
-    }
+    };
 
+// Above I created a while loop for employeee salary so a valid salary is returned. 
       
     
-    employeesArray.push(employeeinfo)
+    employeesArray.push(employeeinfo);
 
     yesOrNO = prompt(" Do you want to add another employee? ('yes' or 'no')").toLowerCase();
     if (yesOrNO === "no") {
       break
-    }
+    };
   
-
+// Above I pushed results to my array and created a conditional statment to add a new person.
   }
 
   console.log(employeesArray);
 
-  return employeesArray;
+  return employeesArray
 };
+// I ended this section by loging the results on the consol and also returning them to display on the table. 
 
 
-
+ 
 
 
 
 // Display the average salary
 const displayAverageSalary = function (employeesArray) {
   // TODO: Calculate and display the average salary
+
+  let sum= 0;
+ // made a variable names sum 
+
+
+  for(i=0; i < employeesArray.length; i++ ){
+    sum += employeesArray[i].salary;
+   
+
+  }
+  // made a for loop that links to  employee array 
+
+
+  let average = sum / employeesArray.length;
+
+  // made a variable to calucalte the average 
+
+  console.log(sum);
+
+  console.log(` The employee average salary is ${average}.`);
+
+  // loged both to see if my sum loop was working and then logged the stament to the console. 
+
+
 };
+
+
+
+
 
 // Select a random employee
 const getRandomEmployee = function (employeesArray) {
